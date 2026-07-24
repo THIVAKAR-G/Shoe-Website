@@ -26,7 +26,7 @@
 
     html, body {
       font-family: 'Inter', sans-serif;
-      background-color: #040615;
+      background-color: #04062c;
       color: #ffffff;
       overflow-x: hidden;
     }
@@ -36,7 +36,7 @@
       font-style: italic;
     }
 
-    /* Fixed Full-Page Screen Canvas */
+    /* Fixed Full-Page Screen Canvas Container (Rich Studio Blue) */
     .canvas-container {
       position: fixed;
       top: 0;
@@ -45,7 +45,7 @@
       height: 100vh;
       z-index: 0;
       overflow: hidden;
-      background: #040615;
+      background: #04062c;
       pointer-events: none;
     }
 
@@ -53,7 +53,7 @@
       display: block;
       width: 100vw;
       height: 100vh;
-      background: #040615;
+      background: #04062c;
     }
 
     /* Teal Glowing Effects */
@@ -65,19 +65,15 @@
       box-shadow: 0 0 12px rgba(20, 184, 166, 0.3);
     }
 
-    /* Glassmorphism Styles */
+    /* Solid Studio Dark Navy UI (Zero Blur) */
     .glass-nav {
-      background: rgba(4, 6, 21, 0.65);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(4, 6, 44, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .glass-badge {
-      background: rgba(4, 6, 21, 0.65);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(4, 6, 44, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     /* Headline fixed to exactly 52px */
@@ -90,7 +86,7 @@
     .loader-overlay {
       position: fixed;
       inset: 0;
-      background: #040615;
+      background: #04062c;
       z-index: 999;
       display: flex;
       flex-direction: column;
@@ -147,7 +143,7 @@
       width: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: #040615;
+      background: #04062c;
     }
     ::-webkit-scrollbar-thumb {
       background: rgba(20, 184, 166, 0.4);
@@ -155,11 +151,11 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-[#040615] text-white antialiased relative overflow-x-hidden">
+<body class="min-h-screen bg-[#04062c] text-white antialiased relative overflow-x-hidden">
 
   <!-- Loading Screen -->
   <div class="loader-overlay" id="loader">
-    <div class="text-xs font-semibold uppercase tracking-[4px] text-gray-400 font-mono">3D Experience Loading</div>
+    <div class="text-xs font-semibold uppercase tracking-[4px] text-gray-400 font-mono">4K Studio Experience Loading</div>
     <div class="progress-track">
       <div class="progress-bar" id="progressBar"></div>
     </div>
@@ -467,7 +463,7 @@
       }
     }
 
-    // Direct High-Definition Original Frame Rendering
+    // Full-Bleed 100% Edge-to-Edge Frame Renderer (Zero Side Cuts, Full Viewport Coverage)
     function drawFrame(frameIndex) {
       const img = frames[frameIndex];
       if (!img || !img.complete || img.naturalWidth === 0) return;
@@ -475,8 +471,11 @@
       const cw = canvas.width;
       const ch = canvas.height;
 
-      ctx.clearRect(0, 0, cw, ch);
+      // Rich studio navy blue clear
+      ctx.fillStyle = '#04062c';
+      ctx.fillRect(0, 0, cw, ch);
 
+      // Full-bleed cover scale fills 100% of viewport width and height from corner to corner
       const scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
       const drawWidth = img.naturalWidth * scale;
       const drawHeight = img.naturalHeight * scale;
@@ -500,7 +499,7 @@
       const progress = getScrollProgress();
       targetFrame = progress * (TOTAL_FRAMES - 1);
 
-      // Smooth inertia lerp for frame rotation
+      // Smooth inertia lerp for 360° frame rotation
       currentFrame += (targetFrame - currentFrame) * 0.08;
 
       const frameToDraw = Math.round(currentFrame);
